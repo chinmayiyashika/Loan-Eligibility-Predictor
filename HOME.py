@@ -3,19 +3,21 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # -------------------------
-# TITLE AND DESCRIPTION
+# TITLE WITH ICON BESIDE
 # -------------------------
-st.title("Loan Approval Prediction System")
+col_icon, col_title = st.columns([1,8])
 
-st.image("https://cdn-icons-png.flaticon.com/512/3135/3135706.png", width=150)
+with col_icon:
+    st.image("https://cdn-icons-png.flaticon.com/512/3135/3135706.png", width=60)
+
+with col_title:
+    st.title("Loan Approval Prediction System")
 
 st.write("""
 This web application predicts whether a loan application will be approved 
 or rejected based on applicant details such as income, loan amount, 
 and credit history.
 """)
-
-st.info("Use the sidebar to navigate to the Prediction and Dataset pages.")
 
 # -------------------------
 # LOAD DATA
@@ -101,4 +103,7 @@ with col3:
 with col4:
     st.pyplot(fig4)
 
-st.pyplot(fig5)
+col5, col6 = st.columns(2)
+
+with col5:
+    st.pyplot(fig5)
